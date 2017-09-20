@@ -31,11 +31,7 @@
     
     <script type="text/javascript">
       function updateMap(zoom, lat, lng) {
-        var src = document.getElementById('map').src;
-        src = src.replace(/latitude=[0-9\.]+/, 'latitude=' + lat);
-        src = src.replace(/longitude=[0-9\.]+/, 'longitude=' + lng);
-        src = src.replace(/zoom=[0-9]+/, 'zoom=' + zoom);
-        document.getElementById('map').src = src;
+        document.getElementById('map').contentWindow.traildock.map.setView([lat, lng], zoom);
       }
     </script>
   </body>
