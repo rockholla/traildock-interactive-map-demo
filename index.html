@@ -22,10 +22,21 @@
          width="500px"
          height="400px"></div>-->
     
-    <iframe src="https://test-www.traildock.com/map?latitude=32.84736&amp;longitude=-109.28372&amp;zoom=11&amp;locate=no&amp;tiles=usgs-topo" width="80%" height="100%" style="border:none;"></iframe>
+    <a href="javascript:updateMap(15, 38.762282243510896, -106.82131290435792);">Eccher/Roaring Intersection</a>
+    <iframe id="map" src="https://test-www.traildock.com/map?latitude=32.84736&amp;longitude=-109.28372&amp;zoom=11&amp;locate=no&amp;tiles=usgs-topo" width="100%" height="90%" style="margin-top:10%;border:none;"></iframe>
 
     <!-- SDK include -->
     <!-- <script type="text/javascript" src="//d2qjbikajwu0wt.cloudfront.net/sdks/js/0.1.0/traildock.min.js"></script> -->
 
+    
+    <script type="text/javascript">
+      function updateMap(zoom, lat, lng) {
+        var src = document.getElementById('map').src;
+        src = src.replace(/latitude=[0-9\.]+/, 'latitude=' + lat);
+        src = src.replace(/longitude=[0-9\.]+/, 'longitude=' + lng);
+        src = src.replace(/zoom=[0-9]+/, 'zoom=' + zoom);
+        document.getElementById('map').src = src;
+      }
+    </script>
   </body>
 </html>
